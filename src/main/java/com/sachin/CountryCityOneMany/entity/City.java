@@ -1,56 +1,63 @@
 package com.sachin.CountryCityOneMany.entity;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import java.util.List;
 
 @Data
 @ToString
 @Entity
+@Table(name = "city")
 public class City
 {
     @Id
-    @Column(name="ID")
-    private String ID;
-    @Column(name="City")
-    private String City;
-    @Column(name="Country")
-    private String Country;
+    @Column(name="id")
+    private String id;
+
+    @Column(name="name")
+    private String name;
+
+    @Column(name="country")
+    private String country;
 
     public City()
     {
     }
 
-    public City(String ID, String Country, String City)
+    public City(String ID, String country, String name)
     {
-        this.ID = ID;
-        this.City = City;
-        this.Country = Country;
+        this.id = ID;
+        this.name = name;
+        this.country = country;
     }
 
-    public String getID() {
-        return ID;
+    public String getId() {
+        return id;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getCity() {
-        return City;
+    public String getName() {
+        return name;
     }
 
-    public void setCity(String city) {
-        City = city;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getCountry() {
-        return Country;
+        return country;
     }
 
     public void setCountry(String country) {
-        Country = country;
+        this.country = country;
     }
+
 }
